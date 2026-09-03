@@ -1,0 +1,53 @@
+* {
+    font-family: Arial, "Arial Black";
+}
+
+body {
+    background-color: #ebdce6;
+
+    color: #333;
+
+    line-height: 1.5;
+
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #2f0235;
+}
+
+#formacion {
+    background-color: #ffffff;
+    padding: 20px 10px 15px 5px;
+    margin: 20px 20px 15px 20px;
+    border-radius: 8px;
+}
+
+#sobre-mi, #habilidades, #proyectos, #contacto{
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.destacado {
+    background-color: #ecc1d0;
+    padding: 15px;
+    border-left: 4px solid #530320;
+
+    font-weight: bold;
+}
+
+.tabla-bonita th, .tabla-bonita td{
+    border: 1px solid #931d48;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-bonita th {
+    background-color: #c5859a;
+    color: #ffffff;
+}
