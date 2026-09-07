@@ -6,10 +6,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-
-
 body {
-
     color: #333;
     line-height: 1.5;
     margin: 0;
@@ -21,7 +18,7 @@ header {
     background-color: #47002a;
 }
 
-#submenu{
+#submenu {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,7 +43,6 @@ header {
     justify-content: center;
 }
 
-
 #menu-principal a,
 #menu-pagina a {
     color: #ffffff;
@@ -55,12 +51,12 @@ header {
     font-weight: 700;
 }
 
-#menu-principal a{
+#menu-principal a {
     transition: font-size 0.3s ease;
     text-decoration: underline;
 }
 
-#menu-principal a:hover{
+#menu-principal a:hover {
     font-size: 35px;
 }
 
@@ -80,7 +76,6 @@ header {
     color: #000e35;
 }
 
-
 /* =========================
    TÍTULOS
 ========================= */
@@ -91,11 +86,9 @@ h1 {
     font-size: 2.8vmax;
 }
 
-
 /* =========================
    SECCIÓN SOBRE MÍ
 ========================= */
-
 
 .contenedor-sobre-mi {
     display: flex;
@@ -109,15 +102,13 @@ h1 {
     width: 35%;
 }
 
-
 /* =========================
    SECCIONES PRINCIPALES
 ========================= */
 
-#habilidades-formacion{
+#habilidades-formacion {
     display: flex;
     width: 100%;
-
 }
 
 #habilidades-formacion section,
@@ -128,27 +119,23 @@ h1 {
 #habilidades,
 #proyectos,
 #contacto,
-#formacion{
+#formacion {
     background-color: #ffffff;
     padding: 20px;
     margin: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
     font-size: 20px;
 }
 
-#proyectos{
-
+#proyectos {
 }
 
 #habilidades h2,
 #proyectos h2,
-#formacion h2{
+#formacion h2 {
     color: #650385;
 }
-
-
 
 /* =========================
    ELEMENTOS DESTACADOS
@@ -165,7 +152,6 @@ h1 {
     font-weight: 1000;
 }
 
-
 /* =========================
    TABLAS
 ========================= */
@@ -181,7 +167,6 @@ h1 {
     background-color: #7a003d;
     color: #ffffff;
 }
-
 
 /* =========================
    PIE DE PÁGINA
