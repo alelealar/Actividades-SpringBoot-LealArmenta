@@ -1,53 +1,193 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
 * {
-    font-family: Arial, "Arial Black";
+    font-family: "Poppins", sans-serif;
 }
+
+
 
 body {
-    background-color: #ebdce6;
 
     color: #333;
-
     line-height: 1.5;
-
     margin: 0;
     padding: 0;
+    background-color: #efa4d3;
 }
+
+header {
+    background-color: #47002a;
+}
+
+#submenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/* =========================
+   MENÚ
+========================= */
+
+#menu-principal,
+#menu-pagina {
+    display: flex;
+    gap: 5vw;
+}
+
+#menu-principal {
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+
+#menu-principal a,
+#menu-pagina a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+#menu-principal a{
+    transition: font-size 0.3s ease;
+    text-decoration: underline;
+}
+
+#menu-principal a:hover{
+    font-size: 35px;
+}
+
+#menu-pagina {
+    font-size: 0.9vw;
+    justify-content: right;
+}
+
+#menu-pagina a {
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#menu-pagina a:hover {
+    background-color: white;
+    color: #000e35;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
 
 h1 {
-    color: #2f0235;
+    color: #ffffff;
+    text-align: center;
+    font-size: 2.8vmax;
 }
 
-#formacion {
-    background-color: #ffffff;
-    padding: 20px 10px 15px 5px;
-    margin: 20px 20px 15px 20px;
-    border-radius: 8px;
+
+/* =========================
+   SECCIÓN SOBRE MÍ
+========================= */
+
+
+.contenedor-sobre-mi {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-#sobre-mi, #habilidades, #proyectos, #contacto{
+#me {
+    width: 35%;
+}
+
+
+/* =========================
+   SECCIONES PRINCIPALES
+========================= */
+
+#habilidades-formacion{
+    display: flex;
+    width: 100%;
+
+}
+
+#habilidades-formacion section,
+#habilidades-formacion div {
+    width: 50%;
+}
+
+#habilidades,
+#proyectos,
+#contacto,
+#formacion{
     background-color: #ffffff;
     padding: 20px;
     margin: 20px;
     border-radius: 8px;
-
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    font-size: 20px;
 }
+
+#proyectos{
+
+}
+
+#habilidades h2,
+#proyectos h2,
+#formacion h2{
+    color: #650385;
+}
+
+
+
+/* =========================
+   ELEMENTOS DESTACADOS
+========================= */
 
 .destacado {
-    background-color: #ecc1d0;
+    background-color: #ffffff;
     padding: 15px;
-    border-left: 4px solid #530320;
-
-    font-weight: bold;
+    border-left: 10px solid #a51984;
+    font-size: 25px;
 }
 
-.tabla-bonita th, .tabla-bonita td{
-    border: 1px solid #931d48;
+#nombre {
+    font-weight: 1000;
+}
+
+
+/* =========================
+   TABLAS
+========================= */
+
+.tabla-bonita th,
+.tabla-bonita td {
+    border: 1px solid #010a29;
     padding: 10px;
     text-align: left;
 }
 
 .tabla-bonita th {
-    background-color: #c5859a;
+    background-color: #7a003d;
     color: #ffffff;
+}
+
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
+
+footer {
+    background-color: #47002a;
+    color: white;
 }

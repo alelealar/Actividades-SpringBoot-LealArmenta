@@ -13,88 +13,108 @@
 
         <link rel="stylesheet" href="css/styles.css">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     </head>
     <body>
         <header>
-            <h1>Alejandra Leal Armenta</h1>
-
-            <p>Estudiante de ISW en el ITSON</p>
-            <nav>
+            <nav id="menu-principal">
                 <a href="index.html">Home</a>
                 <a href="hobbies.html">Hobbies</a>
             </nav>
+            <div id="submenu">
+                <h1>Alejandra Leal Armenta</h1>
+                <nav id="menu-pagina">
+                    <a href="#sobre-mi">Sobre mí</a>
+                    <a href="#habilidades">Habilidades</a>
+                    <a href="#formacion">Formación</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+            </div>
 
-            <nav>
-                <a href="#sobre-mi">Sobre mí</a>
-                <a href="#habilidades">Habilidades</a>
-                <a href="#formacion">Formación</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
+
         </header>
 
         <main>
             <section id="sobre-mi" class="principal">
-                <h2>Sobre mí</h2>
-                <p class="destacado" font->
-                    Hola, soy <strong>Alejandra Leal Armenta</strong>. Estudiante de Ingeniería en Software de ITSON. Inglés nativo intermedio.
-                    Me destaco en el análisis de los requerimientos y sistemas. Me interesa el diseño de software. Me gusta aprender cosas nuevas relacionadas
-                    al analisis y a idear cosas nuevas. No he tenido la oportunidad de implementar mis ideas pero espero pronto pase.
-                </p>
-
-                <img src="me_in_the_mirror.jpeg" alt="Foto de perfil de Alejandra Leal tomada en el espejo" width="300px">
+                <div class="contenedor-sobre-mi">
+                    <p class="destacado">
+                        Hola, soy <br>
+                        <strong id="nombre">Alejandra Leal Armenta</strong>. <br> <br>
+                        Actualmente soy estudiante de Ingeniería en el Instituto Tecnológico de Sonora (ITSON), donde curso la carrera de Ingeniería en Software.
+                        Me interesa especialmente el análisis de problemas y la identificación de requisitos para comprender a profundidad las necesidades de un
+                        proyecto y plantear soluciones adecuadas. Disfruto utilizar el pensamiento creativo para idear formas de mejorar procesos, hacerlos más
+                        eficientes y facilitar su implementación. A través de proyectos académicos he desarrollado experiencia utilizando herramientas como Java,
+                        Spring Boot, Git, GitHub y Figma, además de fortalecer mis habilidades de comunicación, organización y trabajo en equipo. Me considero una
+                        persona responsable, organizada y con disposición para aprender continuamente y afrontar nuevos retos profesionales.
+                    </p>
+                    <img src="me_in_the_mirror.jpeg" alt="Foto de perfil de Alejandra Leal tomada en el espejo" id="me">
+                </div>
             </section>
 
-            <section id="habilidades">
-                <h2>Habilidades</h2>
-                <p id="" name="">Tecnologías y Áreas de Dominio</p>
-                <ul>
-                    <li>Frontend
-                        <ol>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                        </ol>
-                    </li>
+            <div id="habilidades-formacion">
+                <section id="habilidades">
+                    <h2>Habilidades</h2>
+                    <p id="" name="">Tecnologías y Áreas de Dominio</p>
+                    <ul>
+                        <li>Frontend
+                            <ol>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ol>
+                        </li>
 
-                    <li>Backend
-                        <ol>
-                            <li>Java</li>
-                            <li>SQL</li>
-                            <li>MongoDB</li>
-                            <li>Python</li>
-                        </ol>
-                    </li>
-                </ul>
-            </section>
+                        <li>Backend
+                            <ol>
+                                <li>Java</li>
+                                <li>Python</li>
+                            </ol>
+                        </li>
 
-            <section id="formacion">
-                <h2>Formación</h2>
+                        <li>Base de datos
+                            <ol>
+                                <li>SQL</li>
+                                <li>MySQL</li>
+                                <li>MongoDB</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </section>
 
-                <h3>Estudios</h3>
-                <table class="tabla-bonita">
-                    <thead>
-                    <tr>
-                        <th>Año</th>
-                        <th>Institución</th>
-                        <th>Estudios</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>2024-Actualidad</td>
-                        <td>ITSON</td>
-                        <td>Ingeniería en Software</td>
-                    </tr>
+                <section id="formacion">
+                    <h2>Formación</h2>
 
-                    <tr>
-                        <td>2021-2024</td>
-                        <td>CBTis 37</td>
-                        <td>Técnico en Programación</td>
-                    </tr>
-                    </tbody>
-                </table>
+                    <h3>Estudios</h3>
+                    <table class="tabla-bonita">
+                        <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Institución</th>
+                            <th>Estudios</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>2024-Actualidad</td>
+                            <td>ITSON</td>
+                            <td>Ingeniería en Software</td>
+                        </tr>
 
-            </section>
+                        <tr>
+                            <td>2021-2024</td>
+                            <td>CBTis 37</td>
+                            <td>Técnico en Programación</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+
+            </div>
+
 
             <section id="proyectos">
                 <h2>Proyectos</h2>
@@ -109,15 +129,17 @@
 
             <section id="contacto">
                 <h2>Contacto</h2>
+                <p>alejandra.leal262719@potros.itson.edu.mx</p>
+                <p>644 110 3407 </p>
             </section>
         </main>
 
         <footer>
             <p>Sígueme en mis redes sociales.</p>
             <div>
-                <a href="https://www.instagram.com/ale.leal.a/" target="_blank"><img src="imgA3/instagram.png" alt="logo de Instagram" width="50"></a>
-                <a href="https://www.facebook.com/alejandra.lealarmenta?locale=es_LA" target="_blank"><img src="imgA3/facebook.png" alt="logo de Facebook" width="50"></a>
-                <a href="https://github.com/alelealar" target="_blank"><img src="imgA3/github.png" alt="logo de GitHub" width="50"></a>
+                <a class="RS" href="https://www.instagram.com/ale.leal.a/" target="_blank"><img src="imgA3/instagram.png" alt="logo de Instagram" width="50"></a>
+                <a class="RS" href="https://www.facebook.com/alejandra.lealarmenta?locale=es_LA" target="_blank"><img src="imgA3/facebook.png" alt="logo de Facebook" width="50"></a>
+                <a class="RS" href="https://github.com/alelealar" target="_blank"><img src="imgA3/github.png" alt="logo de GitHub" width="50"></a>
             </div>
         </footer>
     </body>
