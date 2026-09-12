@@ -1,0 +1,411 @@
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+:root{
+    --primary-color: #f2f2f2;
+    --titles-color: #47002a;
+    --spacing: 20px
+}
+body {
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/*
+    px:_ unidad de medida absolita
+    %: relativo al contenedor padre
+    vw: relativo al ancho total de la ppantañllña del navegador
+    vh: relativo al alto totalñ de la pantalla del navegador
+    dvh: relativo al tamaño de la fuente raiz
+    em: relativo a la fuente del dispositivo
+    fr: una fraccion pero de un grid
+    rem: relativo a la fuente del dispositivo y al tamaño del contenedor
+*/
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background-color: var(--primary-color);
+    color: var(--titles-color);
+    position: relative;
+    height: 80vh;
+
+}
+
+
+/* =========================
+   MENÚ PRINCIPAL
+========================= */
+
+#menu-principal {
+    display: flex;
+    gap: 5vw;
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    justify-content: left;
+    padding-left: 30px;
+
+    position: absolute ;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#menu-principal a {
+    color: var(--titles-color);
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+
+    transition: font-size 0.3s ease;
+    text-decoration: none;
+}
+
+#menu-principal a:hover {
+    font-size: 20px;
+}
+
+
+/*
+PSEUDOCLASES
+    :hover = mouse encima
+    :acctive= cuando esta presionado un click
+    :focus= mientras el elemento tiene el foco clic o tab
+    :visited= enlace ya visitado
+    :checked: = seleccionado un checkbox
+    :disable = elemento dehabilitado
+
+    :first-child= primer hijo del elemento
+    :last-child= ultimo elemento
+    :nth-child(n) = por patron numerico
+
+PSEUDOELEMENTOS
+    ::before = inyecta contenido antes
+    ::after = inyecta contenido despues
+    ::first-letter = primera letra
+*/
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+h1 {
+    color: var(--titles-color);
+    text-align: left;
+    font-size: 7.8vw;
+    font-family: "Manrope", sans-serif;
+    font-weight: 1000;
+    font-style: italic;
+        
+
+    z-index: 100;
+    position: absolute;
+    left: 80px;
+    top: 100px;
+
+    animation: arriba;
+    animation-timeline: scroll();
+    animation-range: 0 600px;
+}
+
+@keyframes arriba {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+
+/* =========================
+   IMAGEN
+========================= */
+
+#me {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: var(--spacing);
+    padding: var(--spacing);
+}
+
+
+/* =========================
+   MENÚ DE LA PÁGINA
+========================= */
+
+#menu-pagina {
+    display: flex;
+    gap: 5vw;
+
+    font-size: 0.9vw;
+    justify-content: center;
+}
+
+#menu-pagina a {
+    color: var(--titles-color);
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#menu-pagina a:hover {
+    background-color: var(--titles-color);
+    color: #ffffff;
+}
+
+
+/* =========================
+   SOBRE MÍ
+========================= */
+
+section {
+    padding: var(--spacing);
+    border-radius: 8px;
+    text-align: justify;
+}
+
+.contenedor-sobre-mi {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.destacado {
+    background-color: #ffffff;
+    padding: 15px;
+    border-left: 10px solid #a51984;
+    font-size: 25px;
+}
+
+#nombre {
+    font-weight: 1000;
+}
+
+
+/* =========================
+   HABILIDADES
+========================= */
+
+#habilidades {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+#habilidades p {
+    text-align: center;
+}
+
+#habilidades h2, #formacion h2, #proyectos h2 {
+    color: var(--titles-color);
+    text-align: center;
+}
+
+.contenedor-habilidades {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.habilidad{
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8e5f3;
+    text-align: left;
+}
+
+.habilidad h3{
+    text-align: center;
+    color: #7a003d;
+}
+
+.habilidad ul {
+    padding-left: 60px;
+}
+
+/* =========================
+   FORMACIÓN
+========================= */
+
+#formacion {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+#formacion h3{
+    text-align: center;
+}
+
+.tabla-bonita{
+    margin: 0 auto;
+}
+
+.tabla-bonita th,
+.tabla-bonita td {
+    border: 1px solid #010a29;
+    padding: 10px;
+    text-align: justify;
+}
+
+.tabla-bonita th {
+    background-color: #7a003d;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+/* =========================
+   PROYECTOS
+========================= */
+.contenedor-proyectos {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.proyecto {
+    width: 50%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.proyecto img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background-color: #ffffff;
+    display: block;
+}
+
+.descripcion {
+    padding: 10px;
+}
+
+.descripcion h3 {
+    text-align: center;
+}
+
+.descripcion p {
+    text-align: justify;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+#contacto {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+#contacto h2{
+    color: var(--titles-color);
+}
+
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
+
+footer {
+    background-color: var(--primary-color);
+    color: #7a003d;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+footer a{
+    text-decoration: none;
+}
+.contenido-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.redes {
+    text-align: left;
+}
+
+#isw-logo {
+    width: 12vw;
+}
+
+/*HOBBIES*/
+.hobbies {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hobby {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hobby img {
+    width: 18vw;
+    object-fit: contain;
+}
