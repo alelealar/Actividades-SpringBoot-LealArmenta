@@ -21,7 +21,7 @@ public class UsuarioController {
     public String index(){
         return "index";
     }
-    @GetMapping({"/", "/iniciar-sesion", "/inciar-sesion.html"})
+    @GetMapping({"/", "/iniciar-sesion", "/iniciar-sesion.html"})
     public String login(){
         return "iniciar-sesion";
     }
@@ -45,7 +45,7 @@ public class UsuarioController {
         return "redirect:/iniciar-sesion";
     }
 
-    @PostMapping("/auntentication")
+    @PostMapping("/autentication")
     public String autenticar(@RequestParam("correo") String correo, @RequestParam("contrasena") String contrasena) {
 
         if(usuarioService.autenticar(correo, contrasena)){
