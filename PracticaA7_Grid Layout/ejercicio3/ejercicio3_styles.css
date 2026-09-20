@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+h1 {
+    color: #4e0d2e;
+    font-weight: 1000;
+    font-size: 7vh;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 15px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.grid-container div {
+    overflow: hidden; /*A vista permite que el border radius se visualize*/
+    border-radius: 10px;
+}
+
+.grid-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen proporcionalmente para llenar su celda */
+    display: block;
+}
+
+.img-videogames{
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.img-travel3{
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.img-dancing{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.img-watermelon{
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.img-cherrys{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.img-travel2 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.img-watermelon{
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.img-acting2{
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.img-HSM{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.img-Avatar{
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
+    }
+
+    .grid-container div {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+}
