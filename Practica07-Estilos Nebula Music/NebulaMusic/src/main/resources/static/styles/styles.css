@@ -1,0 +1,653 @@
+/* ==========================================================
+   1. CONFIGURACIÓN GENERAL
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --bg-color-dark: #131200;
+    --text-color-dark: #EDF2F4;
+    --links-color-dark: #EFBDEB;
+    --links-hover-dark: #8D91C7;
+    --nav-links: #8d3fd1;
+    --highlight: #62a1da;
+    --input-border: #7b39b0;
+    --buttons-magenta: #8d3fd1;
+    --input-bg-color: #2a2809;
+    --fuente-principal: 'Quicksand', sans-serif;
+}
+
+
+/* ==========================================================
+   2. ELEMENTOS HTML GENERALES
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-principal);
+}
+
+body {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+main {
+    flex: 1;
+}
+
+a {
+    color: var(--links-color-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--links-hover-dark);
+}
+
+form {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    border: none;
+    border-left: solid var(--input-border) 4px;
+    background-color: var(--input-bg-color);
+    height: 45px;
+    border-radius: 12px;
+    color: white;
+    padding: 5px;
+    width: 100%;
+}
+
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--input-border);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+input[type="radio"]:checked {
+    border: 2px solid var(--input-border);
+    background-color: var(--buttons-magenta);
+}
+
+select {
+    height: 30px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--buttons-magenta);
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+}
+
+option {
+    background-color: var(--input-bg-color);
+    color: white;
+    font-weight: normal;
+    text-align: center;
+}
+
+
+/* ==========================================================
+   3. MENÚ DE NAVEGACIÓN
+   ========================================================== */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(19, 18, 0, 0.95);
+    position: relative;
+    z-index: 100;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color-dark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(19, 18, 0, 0.98);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+#menu-toggle:checked ~ ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#menu-toggle:checked ~ .menu-button span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+#menu-toggle:checked ~ .menu-button span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-button span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+nav a {
+    color: var(--text-color-dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--highlight);
+}
+
+
+/* ==========================================================
+   4. INICIO DE SESIÓN
+   ========================================================== */
+
+.auth-container {
+    display: grid;
+    justify-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 500px;
+}
+
+.auth-form h1 {
+    text-align: center;
+}
+
+.auth-form p {
+    text-align: center;
+}
+
+.botones-registro {
+    display: grid;
+    gap: 8px;
+    width: 80%;
+    justify-self: center;
+}
+
+.genero {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.opciones-genero {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logo-nebula {
+    display: block;
+    max-width: 120px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#iniciar-sesion {
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.buttons-inicia-sesion {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-card button[type="reset"] {
+    background-color: transparent;
+    font-size: 10px;
+    padding: 5px;
+    color: white;
+    border: solid 1px white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.auth-card button[type="reset"]:hover {
+    border: solid 2px var(--input-border);
+}
+
+.auth-card button[type="submit"] {
+    background-color: var(--buttons-magenta);
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    height: 35px;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-card button[type="button"] {
+    background-color: transparent;
+    border: solid 1px silver;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    height: 35px;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* ==========================================================
+   5. REGISTRO
+   ========================================================== */
+
+.planes {
+    display: grid;
+    gap: 8px;
+}
+
+.planes label {
+    text-align: center;
+}
+
+.planes select {
+    width: 100%;
+}
+
+.nacimiento {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+input[type="date"] {
+    height: 30px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--buttons-magenta);
+    color: white;
+    font-weight: bold;
+    padding-left: 8px;
+}
+
+
+/* ==========================================================
+   6. PÁGINA DE INICIO - INDEX
+   ========================================================== */
+
+.principal {
+    position: relative;
+}
+
+.principal img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.principal h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white;
+    font-size: 8vw;
+}
+
+#noticias {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+article {
+    background-color: var(--input-bg-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all ease-in-out 0.3s;
+}
+
+article:hover {
+    transform: scale(1.03);
+}
+
+article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* ==========================================================
+   Tablets
+   ========================================================== */
+@media (min-width: 768px) and (orientation: portrait) {
+    nav a {
+        font-size: 3vw;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        height: 80px;
+        font-size: 1.4rem;
+        padding: 10px 15px;
+    }
+
+    /*INDEX*/
+    .principal h1 {
+        font-size: 4.5vw;
+    }
+
+    #noticias {
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    /*LOGIN*/
+    .auth-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .auth-card {
+        width: 95%;
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .auth-card form {
+        width: 100%;
+    }
+
+    .logo-nebula {
+        max-width: 220px;
+    }
+
+    #iniciar-sesion {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .auth-card label {
+        font-size: 1.3rem;
+    }
+
+    .buttons-inicia-sesion {
+        gap: 10px;
+    }
+
+    .auth-card button[type="submit"],
+    .auth-card button[type="button"] {
+        height: 55px;
+        font-size: 1.3rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .auth-card button[type="reset"] {
+        width: 80%;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .auth-card p {
+        font-size: 1.2rem;
+        margin-top: 15px;
+    }
+
+    /*REGISTRO*/
+
+    .auth-form label{
+        font-size: 1.5rem;
+    }
+    .auth-form h1{
+        font-size: 2rem;
+    }
+
+    .planes {
+        width: 80%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .planes select {
+        width: 100%;
+        font-size: 1.5rem;
+        height: 45px;
+        padding: 0 10px;
+        text-align: center;
+
+        appearance: none;
+    }
+
+    .planes label {
+        text-align: center;
+
+    }
+
+    option {
+        background-color: var(--input-bg-color);
+        color: white;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    input[type="date"] {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================================
+   Computadoras
+   ========================================================== */
+@media (min-width: 1024px){
+    nav a {
+        font-size: 2vw;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        height: 90px;
+        font-size: 1.2vw;
+        padding: 10px 15px;
+    }
+
+    /*INDEX*/
+    .principal h1 {
+        font-size: 4vw;
+    }
+
+    #cover-index {
+        height: 40vh;
+    }
+
+    #noticias {
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    /*LOGIN*/
+    .auth-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .auth-card {
+        width: 95%;
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .auth-card form {
+        width: 100%;
+    }
+
+    .logo-nebula {
+        max-width: 220px;
+    }
+
+    #iniciar-sesion {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .auth-card label {
+        font-size: 1.3rem;
+    }
+
+    .buttons-inicia-sesion {
+        gap: 10px;
+    }
+
+    .auth-card button[type="submit"],
+    .auth-card button[type="button"] {
+        height: 55px;
+        font-size: 1.3rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .auth-card button[type="reset"] {
+        width: 80%;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .auth-card p {
+        font-size: 1.2rem;
+        margin-top: 15px;
+    }
+
+    /*REGISTRO*/
+
+    .auth-form label{
+        font-size: 1.5rem;
+    }
+    .auth-form h1{
+        font-size: 2rem;
+    }
+
+    .planes {
+        width: 80%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .planes select {
+        width: 100%;
+        font-size: 1.5rem;
+        height: 45px;
+        padding: 0 10px;
+        text-align: center;
+
+        appearance: none;
+    }
+
+    .planes label {
+        text-align: center;
+
+    }
+
+    option {
+        background-color: var(--input-bg-color);
+        color: white;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    input[type="date"] {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}

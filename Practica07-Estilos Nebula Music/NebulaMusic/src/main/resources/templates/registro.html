@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nébula Music - Registro</title>
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="../static/styles/styles.css">
 </head>
 <body>
 
     <main class="auth-container">
         <section class="auth-card">
             <form class="auth-form" method="post" action="/crear-cuenta" enctype="application/x-www-form-urlencoded">
+
+                <img class="logo-nebula" src="../static/imgs/nebula-03.png" alt="logo nebula music">
                 <h1>Crear cuenta</h1>
-
                 <div>
-
                     <label for="nombre">Nombre completo: </label>
                     <input type="text" id="nombre" name="nombre" placeholder="ej. Alejandra Leal" required minlength="3" maxlength="80">
 
@@ -33,36 +33,36 @@
                         <input type="text" id="pseudonimo" name="pseudonimo" required pattern="[a-zA-Z]{3,10}-[0-9]{2,10}" placeholder="Nebula-2025" minlength="6">
                     </div>
 
-                    <div>
+                    <div class="genero">
                         <label>Genero: </label>
-                        <input type="radio" id="rad_femenino" name="genero" value="femenino" required>
-                        <label for="rad_femenino">Femenino</label>
-                        <input type="radio" id="rad_masculino" name="genero" value="masculino" required>
-                        <label for="rad_masculino">Masculino</label>
-                        <input type="radio" id="rad_otro" name="genero" value="otro" required>
-                        <label for="rad_otro">Otro</label>
-                    </div>
 
-                    <div>
+                        <div class="opciones-genero">
+                            <input type="radio" id="rad_femenino" name="genero" value="femenino" required>
+                            <label for="rad_femenino">Femenino</label>
+                            <input type="radio" id="rad_masculino" name="genero" value="masculino" required>
+                            <label for="rad_masculino">Masculino</label>
+                            <input type="radio" id="rad_otro" name="genero" value="otro" required>
+                            <label for="rad_otro">Otro</label>
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <div class="planes">
                         <label for="suscripcion">Tipo de suscripción</label>
                         <select id="suscripcion" name="suscripcion" required>
-                            <option value="">---- Selecciona una opcion ----</option>
+                            <option disabled selected>---- Selecciona una opcion ----</option>
                             <option value="gratis">---- Gratis (con anuncios) ----</option>
                             <option value="premium_mensual">---- Premiun Mensual ($99/mes) ----</option>
                             <option value="premium_anual">---- Premium Anual (899$/año) ----</option>
                         </select>
                     </div>
-
-                    <div>
+                    <br>
+                    <div class="nacimiento">
                         <label for="fechaNacimiento">Fecha de nacimiento</label>
                         <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
                     </div>
 
-                </div>
-
-                <div>
-                    <input type="checkbox" id="terminos" value="aceptado" required>
-                    <label for="terminos">Acepto los terminos y condiciones de uso</label>
                 </div>
 
                 <div>
@@ -71,7 +71,13 @@
 
                     </textarea>
                 </div>
+
                 <div>
+                    <input type="checkbox" id="terminos" value="aceptado" required>
+                    <label for="terminos">Acepto los terminos y condiciones de uso</label>
+                </div>
+
+                <div class="botones-registro">
                     <button type="reset">Limpiar formulario</button>
                     <button type="submit">Crear usuario</button>
                 </div>
