@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intro - Thymeleaf</title>
+</head>
+<body>
+
+<h1 th:text="${mensajeBienvenida}">Titulo de relleno</h1>
+
+<p>
+    Hola, <span th:text="${nombreUsuario}">Usuario False</span>
+    Bienvenido a mi app dinámica
+</p>
+
+<hr>
+
+<h3>Menu de Navegación</h3>
+
+<ul>
+    <li>
+        <a th:href="@{/saludo}">Ver saludo dinamico</a>
+    </li>
+    <li>
+        <a th:href="@{/catalogo}">Ver catálogo de juegos</a>
+    </li>
+</ul>
+
+</body>
+</html>
