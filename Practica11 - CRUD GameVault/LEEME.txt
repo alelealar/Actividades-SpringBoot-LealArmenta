@@ -1,0 +1,45 @@
+GAMEVAULT - CÓDIGO BASE PARA LA PRÁCTICA 12 (HandlerInterceptor)
+=================================================================
+
+Este código base agrega usuarios a tu GameVault: registro e inicio de sesión
+con contraseña cifrada (BCrypt). En clase haremos que la aplicación recuerde
+quién inició sesión y protegeremos las rutas privadas con un interceptor.
+
+INSTALACIÓN (hazlo ANTES de la clase)
+-------------------------------------
+1. Copia la carpeta src/ de este zip encima de la src/ de tu proyecto.
+
+   Archivos NUEVOS:
+     config/SecurityConfig.java
+     controller/AuthController.java
+     model/Usuario.java
+     repository/UsuarioRepository.java
+     service/UsuarioService.java
+     templates/login.html
+     templates/registro.html
+     templates/mis-juegos.html   (la usaremos en clase)
+
+   Archivos que se REEMPLAZAN:
+     model/Juego.java            (ahora cada juego tiene un dueño: usuario_id)
+     templates/juegos.html       (el catálogo queda público; Editar y Eliminar
+                                  se pasan a mis-juegos.html)
+     templates/formulario.html   (el mismo formulario sirve para crear y editar)
+
+2. Revisa que tu pom.xml tenga esta dependencia (la usamos para BCrypt):
+
+     <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-security</artifactId>
+     </dependency>
+
+   Después recarga Maven en IntelliJ (ícono de la "m" con flechas).
+
+3. Corre la aplicación y prueba:
+     - Regístrate en   http://localhost:8080/registro
+     - Inicia sesión en http://localhost:8080/login
+       Debe aparecer "Bienvenido, <tu nombre>".
+
+   Crea tu usuario desde /registro, no a mano en Workbench: la contraseña tiene
+   que guardarse cifrada o el login no la va a reconocer.
+
+4. Llega a clase con al menos un usuario registrado.
