@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/recursos")
@@ -22,6 +23,11 @@ public class RecursoController {
     @GetMapping
     public List<Recurso> listar(){
         return recursoService.obtenerTodos();
+    }
+
+    @GetMapping("/{id}")
+    public Recurso listarPorId(@PathVariable Long id){
+        return recursoService.obtenerPorId(id).orElse(null);
     }
 
     @PostMapping

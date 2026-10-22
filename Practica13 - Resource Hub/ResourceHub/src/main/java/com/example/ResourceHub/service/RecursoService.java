@@ -19,6 +19,10 @@ public class RecursoService {
         return recursoRepository.findAll();
     }
 
+    public Optional<Recurso> obtenerPorId(Long id) {
+        return recursoRepository.findById(id);
+    }
+
     public Recurso crearRecurso(Recurso recurso){
         //if(recurso.getTitulo() == ""){
         //    throw new
