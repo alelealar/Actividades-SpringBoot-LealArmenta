@@ -11,8 +11,8 @@ export const render = (tasks) =>{
         li.innerHTML = `
             <span>${task.text}</span>
             <div class="actions">
-                <button class="btn-edit">e</button>
-                <button class="btn-delete">x</button>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-delete">X</button>
             </div>
         `
 
