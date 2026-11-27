@@ -27,6 +27,7 @@ export const dashboard = {
         // TODO: 2. Cargar los personajes iniciales llamando a loadCharacters()
         await this.loadCharacters();
         // TODO: 3. Renderizar los favoritos iniciales (si existen en el local storage) llamando a renderFavorites()
+        this.renderFavorites();
     },
 
     /**
@@ -37,11 +38,6 @@ export const dashboard = {
         //          - Se sugiere implementar un 'debounce' (retardo) de 500ms para evitar múltiples peticiones seguidas al API.
         //          - Al escribir, actualizar store.state.filters.name con el texto limpio y reiniciar store.state.currentPage a 1.
         //          - Llamar a loadCharacters() para recargar la grilla.
-        //
-        // TODO: 2. Escuchar el evento 'change' en el select de filtros (this.elements.filter)
-        //          - Actualizar store.state.filters.status con el valor del select y reiniciar store.state.currentPage a 1.
-        //          - Llamar a loadCharacters() para recargar.
-
         let timeout;
         this.elements.search.addEventListener('input', (e) =>{
             clearTimeout(timeout);
@@ -53,6 +49,9 @@ export const dashboard = {
             }, 500)
         });
 
+        // TODO: 2. Escuchar el evento 'change' en el select de filtros (this.elements.filter)
+        //          - Actualizar store.state.filters.status con el valor del select y reiniciar store.state.currentPage a 1.
+        //          - Llamar a loadCharacters() para recargar.
 
         this.elements.filter.addEventListener('change', (e)=>{
             store.state.filters.status = e.target.value;
@@ -124,10 +123,13 @@ export const dashboard = {
             `;
 
             card.querySelector(".fav-btn").addEventListener("click", (e)=>{
-
+                store.toggleFavorite(char);
+                this.renderGrid();
+                this.renderFavorites();
             });
             this.elements.grid.appendChild(card);
         });
+        lucide.createIcons();
     },
 
     /**
@@ -139,15 +141,46 @@ export const dashboard = {
         // TODO: 1. Si la lista store.state.favorites está vacía:
         //          - Inyectar el HTML para estado vacío (puedes ver la plantilla de vacíos en index.html o usar un div simple con clase 'empty-favorites').
         //          - Terminar la ejecución de la función.
+        if (store.state.favorites.length === 0){
+            favoritesList.innerHTML = `
+                <div class="empty-favorites">
+                    <p>No favorites yet</p>
+                </div>
+            `
+            return
+        }
         //
         // TODO: 2. Si hay favoritos, vaciar favoritesList.innerHTML.
+        favoritesList.innerHTML = "";
+
         // TODO: 3. Recorrer cada favorito de store.state.favorites.
-        // TODO: 4. Crear un elemento div con clase 'fav-item' e inyectarle su estructura HTML (usa recursos/resursos.md como guía).
-        // TODO: 5. Agregar un escuchador de eventos click en el botón de eliminar favorito (.remove-fav):
-        //          - Aquel que llama a store.toggleFavorite(favorito) para quitarlo.
-        //          - Llamar de nuevo a renderFavorites() y renderGrid() para que toda la interfaz se actualice.
-        // TODO: 6. Añadir el elemento creado a favoritesList.
+        store.state.favorites.forEach(f => {
+            // TODO: 4. Crear un elemento div con clase 'fav-item' e inyectarle su estructura HTML (usa recursos/resursos.md como guía).
+            const favItem = document.createElement("div");
+            favItem.className = "fav-item";
+            favItem.innerHTML = `
+                <img src="${f.image}" alt="${f.name}">
+                <div class="fav-item-info">
+                    <p class="fav-item-name">${f.name}</p>
+                </div>
+                <button class="remove-fav" title="Eliminar de favoritos">
+                    <i data-lucide="x"></i>
+                </button>
+            `;
+            // TODO: 5. Agregar un escuchador de eventos click en el botón de eliminar favorito (.remove-fav):
+            //          - Aquel que llama a store.toggleFavorite(favorito) para quitarlo.
+            //          - Llamar de nuevo a renderFavorites() y renderGrid() para que toda la interfaz se actualice.
+            favItem.querySelector(".remove-fav").addEventListener("click",()=>{
+                store.toggleFavorite(f)
+                this.renderFavorites()
+                this.renderGrid()
+            });
+            // TODO: 6. Añadir el elemento creado a favoritesList.
+            favoritesList.appendChild(favItem);
+        });
         // TODO: 7. Llamar a lucide.createIcons() para pintar el icono de cierre.
+        lucide.createIcons();
+        
     },
 
     /**
@@ -155,8 +188,13 @@ export const dashboard = {
      */
     updatePagination() {
         // TODO: 1. Deshabilitar o habilitar this.elements.prevBtn si estamos en la página 1 (store.state.currentPage <= 1).
+        this.elements.prevBtn.disabled = store.state.currentPage <= 1;
         // TODO: 2. Deshabilitar o habilitar this.elements.nextBtn si estamos en la página máxima (store.state.currentPage >= store.state.totalPages).
+        this.elements.nextBtn.disabled = store.state.currentPage >= store.state.totalPages;
         // TODO: 3. Cambiar el textContent de this.elements.pageInfo para mostrar la página actual y el total (Ej: "Página X de Y").
+        this.elements.pageInfo.textContent = store.state.totalPages > 0 
+            ? `Página ${store.state.currentPage} de ${store.state.totalPages}` 
+            : 'Página 0 de 0';
     },
 
     /**
