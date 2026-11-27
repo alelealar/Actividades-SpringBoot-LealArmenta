@@ -85,7 +85,7 @@ class PostService {
         const response = await fetch(`${BASE_URL}/posts`,{
             method: "POST",
             headers: this.getHeaders(),
-            body: JSON.stringify(title, content)
+            body: JSON.stringify({title, content})
         });
 
         return this.handleResponse(response, "Error al crear post")

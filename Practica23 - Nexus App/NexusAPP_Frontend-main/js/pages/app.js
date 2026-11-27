@@ -19,13 +19,14 @@ const logoutBtn = document.getElementById('logout-btn');
  */
 document.addEventListener('DOMContentLoaded', () => {
     // TODO: 1. Si NO hay sesión (AuthService.isAuthenticated()), redirigir a 'login.html' y hacer return
-    if(!AuthService.isAuthenticated){
+    if(!AuthService.isAuthenticated()){
         window.location.href = "login.html";
         return;
     }
     // TODO: 2. Llamar a renderUser()
     renderUser();
     // TODO: 3. Llamar a setupEventListeners()
+    setupEventListeners();
     // TODO: 4. Llamar a loadPosts()
     loadPosts();
 });
@@ -55,14 +56,23 @@ function setupEventListeners() {
     // TODO: 2. Escuchar 'click' en composer (delegación de eventos: el trigger se creó con innerHTML):
     //          - Si e.target.closest('#open-post-modal') existe, llamar a openModal()
     //
-    composer.addEventListener("click", ()=>{
-        openModal();
+    composer.addEventListener("click", (e)=>{
+        if (e.target.closest('#open-post-modal')){
+            openModal();
+        }
     });
     // TODO: 3. Escuchar 'click' en modalRoot (el modal tampoco existe al cargar la página):
     //          - Si se hizo clic en la X (e.target.closest('.close-modal'))
     //            o fuera del modal (e.target.classList.contains('modal-overlay')), llamar a closeModal()
     //
+    modalRoot.addEventListener("click", (e)=>{
+        if(e.target.closest('.close-modal') || e.target.classList.contains('modal-overlay')){
+            closeModal();
+            return;
+        }
+    });
     // TODO: 4. Escuchar 'submit' en modalRoot y pasarle la función createPost
+    modalRoot.addEventListener("submit", createPost);
 }
 
 /**
@@ -112,13 +122,29 @@ function closeModal() {
  */
 async function createPost(e) {
     // TODO: 1. Si e.target.id no es 'create-post-form', hacer return
+    if(e.target.id !== "create-post-form"){
+        return;
+    }
     // TODO: 2. Llamar a e.preventDefault()
+    e.preventDefault();
     // TODO: 3. Leer los valores de #post-title y #post-content (con .trim())
+    const title = document.getElementById("post-title").value.trim();
+    const content = document.getElementById("post-content").value.trim();
+
     // TODO: 4. Dentro de un try:
     //          - await PostService.create(title, content)
     //          - closeModal()
     //          - loadPosts() para ver el post nuevo
-    // TODO: 5. En el catch, llamar a handleError(error)
+    try {
+        await PostService.create(title, content);
+        closeModal();
+        loadPosts();    
+    } catch (error) {
+        // TODO: 5. En el catch, llamar a handleError(error)
+        handleError(error);
+        
+    }
+
 }
 
 /**

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // TODO: 1. Escuchar el evento 'submit' de loginForm (la función debe ser async)
     loginForm.addEventListener("submit", async (e)=>{
-        event.preventDefault(); //le quitamos el comportamiento
+        e.preventDefault(); //le quitamos el comportamiento
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         
